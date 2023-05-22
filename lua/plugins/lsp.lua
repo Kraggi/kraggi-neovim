@@ -8,9 +8,6 @@ lspconfig.tsserver.setup({
 	filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript" },
 	cmd = { "typescript-language-server.cmd", "--stdio" },
 })
-lspconfig.cssls.setup({
-	capabilities = capabilities,
-})
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

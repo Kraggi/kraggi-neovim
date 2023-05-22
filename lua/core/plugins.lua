@@ -23,6 +23,7 @@ require("lazy").setup({
 		config = function()
 			require("onedark").setup({
 				style = "darker",
+				transparent = true,
 			})
 		end,
 	},
@@ -78,4 +79,12 @@ require("lazy").setup({
 	{ "phaazon/hop.nvim" },
 	{ "hrsh7th/vim-vsnip" },
 	{ "hrsh7th/vim-vsnip-integ" },
+	{
+		"andweeb/presence.nvim",
+		config = function()
+			require("presence").setup({
+				buttons = false,
+			})
+		end,
+	},
 })
