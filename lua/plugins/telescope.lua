@@ -11,6 +11,7 @@ vim.keymap.set("n", "<leader>gs", builtin.git_status, {})
 vim.keymap.set("n", "<leader>ls", builtin.lsp_document_symbols, {})
 vim.keymap.set("n", "gr", builtin.lsp_references, { noremap = true, silent = true })
 vim.keymap.set("n", "gd", builtin.lsp_definitions, { noremap = true, silent = true })
+vim.keymap.set("n", "gi", builtin.lsp_implementations, { noremap = true, silent = true })
 
 -- Search by selected text
 function vim.getVisualSelection()

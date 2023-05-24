@@ -21,7 +21,7 @@ require("lazy").setup({
 				defaults = {
 					layout_config = {
 						horizontal = { width = 0.95, heigth = 0.95 },
-						preview_width = 0.70,
+						preview_width = 0.60,
 					},
 				},
 			})
@@ -86,7 +86,6 @@ require("lazy").setup({
 		dependencies = { { "nvim-tree/nvim-web-devicons" } },
 	},
 	{ "folke/which-key.nvim" },
-	{ "phaazon/hop.nvim" },
 	{ "hrsh7th/vim-vsnip" },
 	{ "hrsh7th/vim-vsnip-integ" },
 	{
@@ -97,4 +96,5 @@ require("lazy").setup({
 			})
 		end,
 	},
+	{ "farmergreg/vim-lastplace" },
 })
