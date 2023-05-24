@@ -28,11 +28,31 @@ function vim.getVisualSelection()
 	end
 end
 
+function vim.findInFuncConsOrThis()
+	vim.cmd('noau normal! "vy"')
+	local text = "(function|const|this)." .. vim.fn.getreg("v")
+	vim.fn.setreg("v", {})
+
+	text = string.gsub(text, "", "")
+	if #text > 0 then
+		return text
+	else
+		return ""
+	end
+end
+
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 local tb = require("telescope.builtin")
 
-keymap("v", "<space>fw", function()
+-- Find selected word
+keymap("v", "<leader>fw", function()
 	local text = vim.getVisualSelection()
+	tb.live_grep({ default_text = text })
+end, opts)
+
+-- Find selected word and check if it declaration with const, function, this
+keymap("v", "<leader>ft", function()
+	local text = vim.findInFuncConsOrThis()
 	tb.live_grep({ default_text = text })
 end, opts)
