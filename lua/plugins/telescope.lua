@@ -29,11 +29,12 @@ function vim.getVisualSelection()
 end
 
 function vim.findInFuncConsOrThis()
+	local initial_word = vim.fn.expand("<cword>")
 	vim.cmd('noau normal! "vy"')
-	local text = "(function|const|this)." .. vim.fn.getreg("v")
+	local text = "(function|const|let|var|this)." .. initial_word
 	vim.fn.setreg("v", {})
-
 	text = string.gsub(text, "", "")
+
 	if #text > 0 then
 		return text
 	else
@@ -52,7 +53,7 @@ keymap("v", "<leader>fw", function()
 end, opts)
 
 -- Find selected word and check if it declaration with const, function, this
-keymap("v", "<leader>ft", function()
+keymap("n", "<leader>ft", function()
 	local text = vim.findInFuncConsOrThis()
 	tb.live_grep({ default_text = text })
 end, opts)
